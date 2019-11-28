@@ -1,1 +1,95 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background: #fff;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1140px;
+    padding: 20px 0;
+}
+
+.main {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.navbar {
+    border-bottom: 1px solid #333;
+    background-color: #224478;
+    color: #eee;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    a {
+        color: #eee;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        flex-basis: 50%;
+    }
+
+    &__link {
+        padding: 0 5px;
+    }
+}
+
+.active {
+    a {
+        color: #999;
+    }
+    
+}
+
+.validation {
+    color: red;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #224478;
+    color: #eee;
+    border-radius: 5px;
+    border: 0;
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        &__list {
+            flex-basis: 100%;
+            justify-content: center;
+        }
+
+        &__title {
+            text-align: center;
+            flex-basis: 100%;
+        }
+    }
+}
+
