@@ -5,9 +5,10 @@ import { Environment } from './interface';
 // The list of file replacements can be found in `angular.json`.
 
 export const environment: Environment = {
-  production: false,
-  apiKey: 'AIzaSyDeRbL-Ukv3-UsFOQ_45PYXytPf2sOajH0'
-};
+         production: false,
+         apiKey: 'AIzaSyDeRbL-Ukv3-UsFOQ_45PYXytPf2sOajH0',
+         fbDbUrl: 'https://angular-blog-55b5a.firebaseio.com/'
+       };
 
 /*
  * For easier debugging in development mode, you can import the following file

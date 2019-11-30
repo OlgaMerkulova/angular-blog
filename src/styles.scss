@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
 
 * {
     box-sizing: border-box;
@@ -77,6 +79,43 @@ li {
     color: #eee;
     border-radius: 5px;
     border: 0;
+}
+
+.alert {
+    font-size: 20px;
+    background-color: #224478;
+    color: #fff;
+    padding: 5px;
+    margin-bottom: 20px;
+
+    &--danger {
+        background-color: #d64545;
+    }
+}
+
+.form {
+    max-width: 600px;
+    margin: 0 auto;
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__control {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    input {
+        border: 1px solid #888;
+        padding: 5px 3px;
+        border-radius: 3px;
+    }
+
+    label {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 500px) {

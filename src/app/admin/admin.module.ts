@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -32,14 +33,14 @@ import { SharedModule } from '../shared/shared.module';
         children: [
           { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
           { path: 'login', component: LoginPageComponent },
-          { path: 'dashboard', component: DashboardPageComponent },
-          { path: 'create', component: CreatePageComponent },
-          { path: 'post/:id/edit', component: EditPageComponent },
+          { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },
+          { path: 'create', component: CreatePageComponent, canActivate: [AuthGuard] },
+          { path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard] },
         ]
       }
     ])
   ],
   exports: [],
-  providers: [AuthService]
+  providers: [AuthGuard]
 })
 export class AdminModule {}
