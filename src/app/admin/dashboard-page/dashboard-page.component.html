@@ -1,2 +1,38 @@
-<p>dashboard-page works!</p>
+<div class="page__content">
+    <div *ngIf="posts.length; else loading" class="post__list">
+
+        <div class="form form__control">
+            <input type="text" placeholder="Find a post">
+        </div>
+        <table class="post__table">
+            <thead>
+                <tr class="post__line">
+                    <th class="post__cell">#</th>
+                    <th class="post__cell">Title</th>
+                    <th class="post__cell">Title</th>
+                    <th class="post__cell">Date</th>
+                    <th class="post__cell">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts; let i = index" class="post__line">
+                    <td class="post__cell">{{i+1}}</td>
+                    <td class="post__cell">{{post.author}}</td>
+                    <td class="post__cell">{{post.title}}</td>
+                    <td class="post__cell">{{post.date | date: 'medium'}}</td>
+                    <td class="post__cell">
+                        <button class="btn btn--link" [routerLink]="['/admin', 'post', post.id, 'edit']">
+                            View post
+                        </button>
+                        <a (click)=removePost(post.id)>Delete post</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #loading>Loading...</ng-template>
+</div>
+
+
 
