@@ -19,7 +19,7 @@
                     <td class="post__cell">{{i+1}}</td>
                     <td class="post__cell">{{post.author}}</td>
                     <td class="post__cell">{{post.title}}</td>
-                    <td class="post__cell">{{post.date | date: 'medium'}}</td>
+                    <td class="post__cell">{{post.date | date: 'medium':null:'en'}}</td>
                     <td class="post__cell">
                         <button class="btn btn--link" [routerLink]="['/admin', 'post', post.id, 'edit']">
                             View post

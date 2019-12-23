@@ -1,3 +1,4 @@
+import { AlertService } from './../services/alert.service';
 import { Post } from './../../shared/interfaces';
 import { PostService } from './../../shared/posts.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -20,7 +21,8 @@ export class EditPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private postService: PostService
+    private postService: PostService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -50,6 +52,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
       title: this.form.value.title,
     }).subscribe(() => {
       this.submitted = false;
+      this.alertService.success('The post was updated');
     });
   }
 
