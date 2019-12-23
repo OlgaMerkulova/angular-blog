@@ -1,3 +1,4 @@
+import { SearchPipe } from './pipes/search.pipe';
 import { AuthGuard } from './services/auth.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,7 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     LoginPageComponent,
     DashboardPageComponent,
     CreatePageComponent,
-    EditPageComponent
+    EditPageComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,

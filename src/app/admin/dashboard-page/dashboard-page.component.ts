@@ -2,7 +2,7 @@ import { PostService } from './../../shared/posts.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Post } from 'src/app/shared/interfaces';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -12,7 +12,9 @@ import { Subscription } from 'rxjs';
 export class DashboardPageComponent implements OnInit, OnDestroy {
   
   pSub: Subscription;
+  dSub: Subscription;
   posts: Post[] = [];
+  searchTitle = '';
 
   constructor(
     private postsService: PostService
@@ -24,14 +26,19 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  removePost(id: string) {
+    this.dSub = this.postsService.remove(id).subscribe( () => {
+      this.posts = this.posts.filter(post => post.id !== id);
+    });
+  }
+
   ngOnDestroy() {
     if (this.pSub) {
       this.pSub.unsubscribe();
     }
+
+    if (this.dSub) {
+      this.dSub.unsubscribe();
+    }
   }
-
-  removePost() {
-
-  }
-
 }
